@@ -31,22 +31,26 @@ class Question(models.Model):
     title_test = models.ForeignKey(Test, on_delete=models.DO_NOTHING)
     question_text = models.TextField()
     question_point = models.IntegerField(default = 1)
-		
+    
+    option_one = models.TextField(max_length=30)
+    option_one_points = models.IntegerField(default=0)
+    option_one_visible = models.BooleanField(default=True)
+
+    option_two = models.TextField(max_length=30)
+    option_two_points = models.IntegerField(default=0)
+    option_two_visible = models.BooleanField(default=True)
+    
+    option_three = models.TextField(max_length=30)
+    option_three_points = models.IntegerField(default=0)
+    option_three_visible = models.BooleanField(default=True)
+    
+    option_four = models.TextField(max_length=30)
+    option_four_points = models.IntegerField(default=0)
+    option_four_visible = models.BooleanField(default=True)
+
     def __str__(self):
         return self.question_text
 
     class Meta(object):
         verbose_name = 'Вопрос'
         verbose_name_plural = 'Вопросы'
-
-class Choice(models.Model):
-    choice = models.ForeignKey(Question, on_delete=models.DO_NOTHING)
-    choice_text = models.TextField()
-    choice_point = models.IntegerField(default = 0)
-        
-    def __str__(self):
-        return self.choice_text
-
-    class Meta(object):
-        verbose_name = 'Вариант ответа'
-        verbose_name_plural = 'Варианты ответа'

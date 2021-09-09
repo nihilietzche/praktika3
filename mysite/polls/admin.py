@@ -1,13 +1,10 @@
 from django.contrib import admin
-from .models import Test, Question, Choice, Category
+from .models import Test, Question, Category
 
 class QuestionInline(admin.StackedInline):
     model = Question
     extra = 1
 
-class ChoiceInline(admin.StackedInline):
-    model = Choice
-    extra = 1
 
 
 class TestAdmin(admin.ModelAdmin):
@@ -26,9 +23,7 @@ class  QuestionAdmin(admin.ModelAdmin):
         'question_text',
         'question_point',
     )
-    inlines = [
-    ChoiceInline,
-    ]
+
 
 admin.site.register(Test, TestAdmin)
 admin.site.register(Category)
