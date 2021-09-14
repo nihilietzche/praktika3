@@ -27,4 +27,3 @@ class  QuestionAdmin(admin.ModelAdmin):
 
 admin.site.register(Test, TestAdmin)
 admin.site.register(Category)
-admin.site.register(Question, QuestionAdmin)
